@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard de Desospitalizacao - Mockup</title>
+    <link rel="stylesheet" href="./desospitalizacao-mockup.css" />
+  </head>
+  <body>
+    <main class="stage">
+      <section class="canvas" aria-label="Dashboard de Desospitalizacao">
+        <header class="topbar">
+          <div>
+            <h1>Dashboard de Desospitalizacao</h1>
+            <p>Mockup com base real do DW, enriquecimento Oracle TASY e recorte de marco/2026.</p>
+          </div>
+          <div class="topbar-badge">Base atualizada em 17/03/2026</div>
+        </header>
+
+        <section class="cards" id="cards"></section>
+
+        <section class="panels">
+          <article class="panel journey">
+            <div class="panel-heading">
+              <h2>Jornada de Desospitalizacao</h2>
+              <p>Volume do mes corrente para os indicadores do fato.</p>
+            </div>
+            <div class="journey-grid">
+              <div class="journey-chart" id="journey-chart"></div>
+              <aside class="journey-side" id="support-metrics"></aside>
+            </div>
+          </article>
+
+          <article class="panel trend">
+            <div class="panel-heading">
+              <h2>Tendencia / Risco</h2>
+              <p>Ultimos 12 meses com leitura operacional dos riscos.</p>
+            </div>
+            <div class="trend-chart-wrap">
+              <svg id="trend-chart" viewBox="0 0 580 220" aria-label="Serie temporal"></svg>
+            </div>
+            <div class="risk-notes" id="risk-notes"></div>
+          </article>
+        </section>
+
+        <section class="panel table-panel">
+          <div class="panel-heading table-title">
+            <h2>Tabela de Priorizacao de Alta</h2>
+            <p>Pacientes e unidades reais vindos do Oracle; IDs mantidos para rastreabilidade do fato.</p>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Paciente</th>
+                <th>Unidade</th>
+                <th>Status Alta</th>
+                <th>Risco</th>
+                <th>Tempo Internacao</th>
+              </tr>
+            </thead>
+            <tbody id="priority-table"></tbody>
+          </table>
+        </section>
+      </section>
+    </main>
+
+    <script src="./desospitalizacao-mockup.js"></script>
+  </body>
+</html>

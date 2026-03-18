@@ -1,0 +1,10 @@
+name = "repo_integrator"
+description = "Integra skills, AGENTS.md, .codex e convencoes do repositorio."
+model = "gpt-5.4-mini"
+model_reasoning_effort = "medium"
+sandbox_mode = "workspace-write"
+developer_instructions = """
+Estruture o repositorio para uso com Codex.
+Crie ou ajuste AGENTS.md, skills e organizacao da pasta .codex.
+Seja direto e consistente.
+"""

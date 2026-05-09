@@ -1,8 +1,8 @@
-# Template Figma - Dashboard de Desospitalizacao
+# Template Figma - Dashboard de Desospitalizacao com Sidebar
 
 ## Objetivo
 
-Transformar o mockup HTML `desospitalizacao-mockup.html` em um template reutilizavel no Figma, com linguagem institucional de saude, grid rigido, leitura executiva rapida e componentes reaproveitaveis.
+Transformar o mockup HTML `desospitalizacao-mockup.html` em um template reutilizavel no Figma, com linguagem institucional de saude, grid rigido, leitura executiva rapida e componentes reaproveitaveis, sem inserir conteudos ficticios.
 
 ## Tipo de template
 
@@ -33,16 +33,19 @@ Criar o frame principal em `03 Templates` com o nome:
 - Stroke: `rgba(44, 90, 38, 0.15)`
 
 ### Grid recomendado
-- `12` colunas
+- `12` colunas no content area
 - Margens laterais: `16`
 - Gutter: `10`
 - Base de espacamento: `4, 8, 10, 12, 16, 24`
 
-### Estrutura vertical
-- Header: `73`
-- Linha de KPIs: altura minima `92`
-- Linha de paineis: altura minima `270`
-- Tabela inferior: bloco flexivel ocupando o restante
+### Estrutura geral
+- Sidebar fixa: `232`
+- Content area: `Fill container`
+- Main content com layout vertical:
+  - Header: `73`
+  - Linha de KPIs: altura minima `92`
+  - Linha de paineis: altura minima `270`
+  - Tabela inferior: bloco flexivel ocupando o restante
 
 ## Paleta
 
@@ -78,12 +81,43 @@ Fonte recomendada: `Segoe UI` ou equivalente sans-serif de alta legibilidade.
 
 ## Composicao do layout
 
+### 0. Shell e sidebar institucional
+
+Criar um shell com sidebar fixa e content area expansivel.
+
+Componentes:
+
+- `Shell / App`
+- `Sidebar / Institutional`
+
+Estrutura:
+
+```text
+Shell / App
+  Sidebar / Institutional
+    Brand Area
+    Navigation Slots
+    Utility Footer
+  Main / Content
+```
+
+Especificacao:
+- Sidebar com largura fixa `232`
+- Auto layout vertical
+- Padding interno: `16`
+- Fill: `Surface / Soft`
+- Separacao visual discreta com stroke sutil
+
+Conteudo estrutural:
+- areas vazias ou neutras para brand, navegacao e utilitarios
+- sem menu detalhado, sem contadores e sem labels inventados
+
 ### 1. Header institucional
 Usar um bloco horizontal com:
 
 - Titulo: `Dashboard de Desospitalizacao`
-- Subtitulo operacional abaixo do titulo
-- Badge de atualizacao no canto direito
+- Subtitulo curto abaixo do titulo
+- Badge estrutural no canto direito
 
 Especificacao:
 - Padding: `18 24 16 24`
@@ -98,10 +132,7 @@ Nome do componente:
 ### 2. Linha de KPIs
 Criar uma linha com `4` cards de mesma largura:
 
-- `Pacientes Elegiveis Alta`
-- `Alta Prevista 24h`
-- `Risco Readmissao 30d`
-- `Retorno UTI 48h`
+Labels estruturais de KPI, sem dados ou nomes simulados.
 
 Estrutura interna de cada card:
 - label no topo
@@ -159,8 +190,8 @@ Criar um painel full width na parte inferior.
 Estrutura:
 - titulo e descricao
 - header da tabela
-- linhas de pacientes
-- badges de risco por severidade
+- linhas vazias estruturais
+- badges de risco estruturais
 
 Colunas:
 1. `Paciente`
@@ -180,9 +211,13 @@ Componentes:
 ## Auto layout recomendado
 
 ### Frame principal
+- Auto layout horizontal
+- Sidebar fixa e content area expansivel
+
+### Main content
 - Auto layout vertical
 - Gap entre blocos: `10`
-- Padding inferior: `16`
+- Padding: `16`
 
 ### Cards KPI
 - Container horizontal com `Fill container`
@@ -200,32 +235,34 @@ Componentes:
 ## Ordem de construcao no Figma
 
 1. Criar o frame `1280 x 720`
-2. Aplicar grid de `12` colunas
-3. Montar o `Header / Institutional / Badge`
-4. Montar e componentizar `KPI / Card / Default`
-5. Montar `Panel / Journey / Default`
-6. Montar `Panel / Trend / Default`
-7. Montar `Table / Row / PatientPriority`
-8. Consolidar badges e metric cards como componentes
-9. Duplicar o frame como template base limpo
+2. Montar `Shell / App` com sidebar fixa de `232`
+3. Aplicar grid de `12` colunas no content area
+4. Montar o `Header / Institutional / Badge`
+5. Montar e componentizar `KPI / Card / Default`
+6. Montar `Panel / Journey / Default`
+7. Montar `Panel / Trend / Default`
+8. Montar `Table / Row / PatientPriority`
+9. Consolidar badges e metric cards como componentes
+10. Duplicar o frame como template base limpo
 
-## Conteudos que devem virar placeholder
+## Conteudos que devem ficar vazios ou neutros
 
-Substituir dados reais por placeholders no template final:
+Nao inserir dados ficticios, amostras numericas ou casos reais no template final.
 
-- nome de pacientes
-- medico responsavel
-- numero de atendimento
-- numero de prescricao
-- unidades especificas
+Nao preencher:
+
+- labels detalhadas da sidebar
+- nomes de pacientes
+- unidades assistenciais especificas
 - datas de atualizacao
-- metricas numericas do mes
+- numeros dos KPIs
+- series mensais
+- textos operacionais
 
-Manter como texto editavel:
+Manter como texto editavel apenas o que for estrutural:
 
 - titulos de secao
-- labels dos KPIs
-- labels da tabela
+- labels estruturais da tabela
 - rotulos de risco
 
 ## Regras de reutilizacao
@@ -238,6 +275,7 @@ Manter como texto editavel:
 
 ## Mapeamento do mockup HTML para Figma
 
+- `shell/sidebar` -> `Sidebar / Institutional`
 - `.topbar` -> `Header / Institutional / Badge`
 - `.card` -> `KPI / Card / Default`
 - `.journey` -> `Panel / Journey / Default`

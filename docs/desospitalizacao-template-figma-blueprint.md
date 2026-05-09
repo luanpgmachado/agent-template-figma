@@ -1,9 +1,9 @@
-# Blueprint Figma - Dashboard Operacional de Desospitalizacao
+# Blueprint Figma - Dashboard Operacional de Desospitalizacao com Sidebar
 
 ## Escopo
 
 Blueprint de construcao para o template `Dashboard / Desospitalizacao / Default`, derivado do mockup HTML e do roteiro `desospitalizacao-template-figma.md`.
-Este documento orienta apenas o layout estrutural, sem preenchimento de dados ficticios.
+Este documento orienta apenas o layout estrutural, sem preenchimento de dados ficticios, sem placeholders textuais e sem copia do visual de referencia.
 
 Direcao adotada:
 
@@ -11,6 +11,7 @@ Direcao adotada:
 - leitura em poucos segundos
 - composicao institucional de saude
 - blocos 100% reutilizaveis em outros temas assistenciais
+- shell com sidebar institucional fixa e area principal em grid rigido
 
 ## Estrutura de paginas
 
@@ -57,6 +58,8 @@ Secoes minimas:
 
 Agrupar os componentes por families:
 
+- `Shell`
+- `Sidebar`
 - `Header`
 - `KPI`
 - `Panel`
@@ -64,6 +67,7 @@ Agrupar os componentes por families:
 - `Metric`
 - `Table`
 - `Badge`
+- `Divider`
 
 ### 03 Templates
 
@@ -153,9 +157,11 @@ Somente um efeito leve:
 - tamanho: `1280 x 720`
 - fill: `Surface / Base`
 - stroke: `rgba(44, 90, 38, 0.15)`
-- layout grid: `12 columns`
+- layout grid: `12 columns` no content area
 - margins: `16`
 - gutter: `10`
+- sidebar fixa: `232` px
+- content area: `Fill container`
 
 ### Estrutura raiz
 
@@ -163,28 +169,80 @@ Usar esta hierarquia:
 
 ```text
 Dashboard / Desospitalizacao / Default
-  Content / Root
-    Header / Institutional / Badge
-    KPI / Row / 4-up
-      KPI / Card / Default
-      KPI / Card / Positive
-      KPI / Card / Warning
-      KPI / Card / Critical
-    Panels / Row / Main
-      Panel / Journey / Default
-      Panel / Trend / Default
-    Panel / Table / Default
+  Shell / App
+    Sidebar / Institutional
+      Brand Area
+      Navigation Slots
+      Utility Footer
+    Main / Content
+      Header / Institutional / Badge
+      KPI / Row / 4-up
+        KPI / Card / Default
+        KPI / Card / Positive
+        KPI / Card / Warning
+        KPI / Card / Critical
+      Panels / Row / Main
+        Panel / Journey / Default
+        Panel / Trend / Default
+      Panel / Table / Default
 ```
 
 ### Auto layout da raiz
 
-- direcao: vertical
-- padding: `16 16 16 16`
-- gap: `10`
+- direcao: horizontal
+- `Shell / App` com sidebar fixa e main expansivel
+- padding externo: `0`
+- gap: `0`
 - width: `Fill container`
 - height: fixed `720`
 
+### Auto layout do conteudo principal
+
+- `Main / Content`: vertical
+- padding interno: `16`
+- gap: `10`
+- width: `Fill container`
+- height: `Fill container`
+
 ## Hierarquia detalhada do frame principal
+
+### 0. Shell e sidebar institucional
+
+Componentes:
+
+- `Shell / App`
+- `Sidebar / Institutional`
+
+Estrutura:
+
+```text
+Shell / App
+  Sidebar / Institutional
+    Brand Area
+    Navigation Slots
+    Utility Footer
+  Main / Content
+```
+
+Config da sidebar:
+
+- largura fixa: `232`
+- auto layout vertical
+- padding interno: `16`
+- gap: `12`
+- fill: `Surface / Soft`
+- separacao visual discreta com stroke sutil
+
+Fixo:
+
+- zona de marca no topo
+- slots de navegacao sem nomes operacionais ficticios
+- rodape utilitario discreto
+
+Conteudo estrutural:
+
+- areas vazias ou neutras para brand, navegacao e utilitarios
+- sem menu detalhado, sem contadores e sem labels inventados
 
 ### 1. Header institucional
 
@@ -231,13 +289,13 @@ Config do container:
 
 - auto layout horizontal
 - gap: `10`
-- width util: `1248`
 - cada card: `Fill container`
 - altura minima: `92`
 
-Largura de referencia por card:
+Distribuicao:
 
-- `304.5` px em distribuicao igual
+- 4 cards em larguras iguais dentro do content area
+- preferir proporcao por colunas ou `Fill container` sem largura absoluta
 
 Componentes:
 
@@ -276,6 +334,7 @@ Fixo:
 Conteudo estrutural:
 
 - areas vazias para valor principal, meta e observacao curta
+- sem numeros, sem simbolos de tendencia e sem preenchimento editorial
 
 ### 3. Linha principal de paineis
 
@@ -299,10 +358,6 @@ Distribuicao recomendada no grid:
 Componente:
 
 - `Panel / Journey / Default`
-
-Largura de referencia:
-
-- `723.8` px
 
 Estrutura:
 
@@ -335,17 +390,13 @@ Subgrid interna:
 - `Journey / Grid` em horizontal
 - gap: `12`
 - `Journey / List` com `Fill container`
-- `Journey / SideMetrics` com largura fixa entre `164` e `180`
+- `Journey / SideMetrics` com largura proporcional ao container ou faixa visual equivalente a 2-3 colunas
 
 #### Painel direito
 
 Componente:
 
 - `Panel / Trend / Default`
-
-Largura de referencia:
-
-- `514.2` px
 
 Estrutura:
 
@@ -375,9 +426,16 @@ Fixo nos dois paineis:
 - estrutura do container
 - estilos de fundo e borda
 
+Distribuicao:
+
+- painel esquerdo: 7 colunas
+- painel direito: 5 colunas
+- evitar medidas absolutas; usar a malha do content area
+
 Conteudo estrutural nos dois paineis:
 
 - areas vazias para barras, grafico, pontos e notas operacionais
+- sem series desenhadas, sem marcadores de dado e sem texto de insight
 
 ### 4. Tabela de priorizacao
 
@@ -435,8 +493,17 @@ Fixo:
 Conteudo estrutural:
 
 - linhas vazias ou blocos neutros para paciente, unidade, status, risco e tempo
+- sem nomes, sem unidades reais e sem dados simulados
 
 ## Componentes necessarios
+
+### Shell
+
+- `Shell / App`
+
+### Sidebar
+
+- `Sidebar / Institutional`
 
 ### Header
 
@@ -471,6 +538,10 @@ Conteudo estrutural:
 - `Badge / Risk / Medium`
 - `Badge / Risk / High`
 
+### Divider
+
+- `Divider / Soft`
+
 Recomendacao:
 
 - transformar os tres badges em variants dentro de um mesmo component set `Badge / Risk`
@@ -482,6 +553,20 @@ Recomendacao:
 - todos os blocos de primeiro nivel devem usar auto layout
 - evitar agrupamentos soltos
 - usar `Fill container` para areas que precisam escalar sem quebrar o grid
+- manter `Shell / App` em horizontal e `Main / Content` em vertical
+- sidebar sempre com largura fixa
+
+### Shell
+
+- horizontal
+- sidebar fixa
+- content area expansivel
+
+### Sidebar
+
+- vertical
+- altura completa
+- gaps regulares e areas neutras
 
 ### Header
 
@@ -512,6 +597,7 @@ Nao inserir dados ficticios, amostras numericas ou casos reais no template final
 
 Nao preencher:
 
+- labels detalhadas da sidebar
 - nomes de pacientes
 - unidades assistenciais especificas
 - datas de atualizacao
@@ -522,6 +608,7 @@ Nao preencher:
 
 Estrutural apenas:
 
+- shell, sidebar e divisorias
 - barras da jornada
 - linhas da tendencia
 - microcards de apoio
@@ -532,12 +619,13 @@ Estrutural apenas:
 Pode permanecer fixo no template:
 
 - titulo principal `Dashboard de Desospitalizacao`
-- labels dos 4 KPIs
 - titulo e descricao curta das secoes
 - labels das colunas da tabela
 - estrutura e estilos dos badges
 - estrutura do header institucional
 - grid, paddings, radii e strokes
+- largura da sidebar
+- estrutura geral do shell
 
 ## Regras para duplicacao
 
@@ -549,6 +637,7 @@ Pode permanecer fixo no template:
 
 ## Mapeamento do mockup HTML
 
+- `shell/sidebar` -> `Sidebar / Institutional`
 - `.topbar` -> `Header / Institutional / Badge`
 - `.cards` -> `KPI / Row / 4-up`
 - `.card` -> `KPI / Card / Variant`
@@ -563,11 +652,12 @@ Pode permanecer fixo no template:
 ## Checklist de montagem
 
 1. Criar `03 Templates / Dashboard / Desospitalizacao / Default` em `1280 x 720`.
-2. Aplicar grid de 12 colunas com margem `16` e gutter `10`.
-3. Montar o `Header / Institutional / Badge` e publicar como componente.
-4. Montar `KPI / Card` com variants e instanciar a linha de 4 cards.
-5. Montar `Panel / Journey / Default` com `Chart / BarRow` e `Metric / SupportCard`.
-6. Montar `Panel / Trend / Default` com `Chart / Line / MultiSeries` e `Metric / RiskNote`.
-7. Montar `Panel / Table / Default`, `Table / Header / Default` e `Table / Row / PatientPriority`.
-8. Consolidar `Badge / Risk` como component set.
-9. Duplicar o frame final para `Dashboard / Desospitalizacao / Clean`.
+2. Montar `Shell / App` com sidebar fixa de `232` px.
+3. Aplicar grid de 12 colunas no content area com margem `16` e gutter `10`.
+4. Montar o `Header / Institutional / Badge` e publicar como componente.
+5. Montar `KPI / Card` com variants e instanciar a linha de 4 cards.
+6. Montar `Panel / Journey / Default` com `Chart / BarRow` e `Metric / SupportCard`.
+7. Montar `Panel / Trend / Default` com `Chart / Line / MultiSeries` e `Metric / RiskNote`.
+8. Montar `Panel / Table / Default`, `Table / Header / Default` e `Table / Row / PatientPriority`.
+9. Consolidar `Badge / Risk` e `Divider / Soft` como component sets.
+10. Duplicar o frame final para `Dashboard / Desospitalizacao / Clean`.

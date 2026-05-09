@@ -1,0 +1,170 @@
+{
+  "skill_name": "figma-caneca-generator",
+  "evals": [
+    {
+      "id": 1,
+      "eval_name": "caneca-moldura-foto",
+      "prompt": "Crie um template de caneca no Figma com moldura em forma de coração, espaço para foto no centro (usar foto 'casal-feliz' do repositório de imagens), área de texto editável no topo para personalização e fundo com padrão suave. Certifique-se de validar a foto antes de integrar e aplicar margens de segurança para sublimação.",
+      "expected_output": "Template Figma 20,5x9,6cm com: moldura coração, foto integrada (após validação), texto editável, fundo decorado, margens seguras, camadas nomeadas, pronto para edição e exportação",
+      "files": [],
+      "assertions": [
+        {
+          "name": "template_dimensoes_corretas",
+          "description": "Canvas tem exatamente 20,5cm × 9,6cm (ou equivalente em pixels: 2456×1148 @ 300 DPI)"
+        },
+        {
+          "name": "moldura_coracaico_presente",
+          "description": "Moldura em forma de coração está visível no canvas"
+        },
+        {
+          "name": "foto_integrada",
+          "description": "Foto 'casal-feliz' foi encontrada e integrada no template"
+        },
+        {
+          "name": "texto_editavel",
+          "description": "Há pelo menos um campo de texto editável no topo do template"
+        },
+        {
+          "name": "margem_seguranca_aplicada",
+          "description": "Margens de segurança (SafeZone) estão visíveis ou documentadas"
+        },
+        {
+          "name": "camadas_nomeadas",
+          "description": "Camadas estão nomeadas descritivamente (ex: Moldura, Foto, Texto_Principal)"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "eval_name": "caneca-natal-comemorativa",
+      "prompt": "Crie um template de caneca para Natal com: fundo vermelho escuro, flocos de neve e elementos natalinos (árvore, sinos, flocos), texto 'Feliz Natal' como destaque principal, e área para nome personalizado abaixo. Organize as camadas profissionalmente para que alguém possa editar o nome depois.",
+      "expected_output": "Template Figma 20,5x9,6cm com: fundo vermelho, elementos natalinos decorativos, texto 'Feliz Natal' (não editável), campo de nome (editável), camadas bem nomeadas, pronto para sublimação",
+      "files": [],
+      "assertions": [
+        {
+          "name": "fundo_vermelho_presente",
+          "description": "Fundo com tons vermelhos ou marrom escuro está aplicado"
+        },
+        {
+          "name": "elementos_natalinos",
+          "description": "Há pelo menos 3 elementos natalinos (árvore, sino, floco, vela, etc.)"
+        },
+        {
+          "name": "texto_feliz_natal",
+          "description": "Texto 'Feliz Natal' ou similar está presente e destacado"
+        },
+        {
+          "name": "campo_nome_editavel",
+          "description": "Há campo de texto editável claramente identificado para nome"
+        },
+        {
+          "name": "organizacao_camadas",
+          "description": "Camadas estão bem organizadas e nomeadas (BG, Decorações, Textos, etc.)"
+        },
+        {
+          "name": "proporcoes_corretas",
+          "description": "Template mantém proporções 20,5 × 9,6cm"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "eval_name": "caneca-infantil-unicornio",
+      "prompt": "Crie um template de caneca infantil com tema unicórnio: cores pastéis (rosa, roxo, azul), unicórnio como elemento central, arco-íris ao fundo, nuvens nos cantos, e 3 áreas de texto editável para nome (grande), idade (médio) e mensagem personalizada (pequeno). Margens de segurança para não cortar elementos importantes.",
+      "expected_output": "Template Figma 20,5x9,6cm com: unicórnio centralizado, cores pastéis, arco-íris, nuvens, 3 campos de texto editáveis com tamanhos diferentes, camadas nomeadas logicamente, pronto para impressão infantil",
+      "files": [],
+      "assertions": [
+        {
+          "name": "cores_pasteis",
+          "description": "Paleta usa cores pastéis (rosa suave, roxo claro, azul pastel)"
+        },
+        {
+          "name": "unicornio_centralizado",
+          "description": "Unicórnio ou elemento equino está centralizado no canvas"
+        },
+        {
+          "name": "arcoiris_presente",
+          "description": "Arco-íris está visível ao fundo"
+        },
+        {
+          "name": "nuvens_cantos",
+          "description": "Há nuvens decorativas nos cantos do template"
+        },
+        {
+          "name": "tres_campos_texto",
+          "description": "Há exatamente 3 campos de texto editável (nome grande, idade médio, mensagem pequeno)"
+        },
+        {
+          "name": "margens_seguranca",
+          "description": "Elementos importantes estão afastados das bordas (2mm de margem)"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "eval_name": "caneca-grade-vertical-multiplas-fotos",
+      "prompt": "Crie um template de caneca com moldura grade vertical (estilo retângulo vertical) contendo 2 fotos lado a lado: 'casal-feliz' e 'casal-praia'. Adicione campos de texto editáveis embaixo de cada foto para nomes (ex: Nome 1 e Nome 2). Fundo decorativo em volta das molduras. Aplicar margens de segurança.",
+      "expected_output": "Template Figma 20,5x9,6cm com: 2 retângulos verticais lado a lado, ambas fotos validadas e integradas, 2 campos de texto editáveis com nomes, fundo decorativo, margens seguras, camadas nomeadas (Foto_1, Foto_2, Texto_Nome_1, Texto_Nome_2, etc.)",
+      "files": [],
+      "assertions": [
+        {
+          "name": "dois_retangulos_verticais",
+          "description": "Há 2 retângulos organizados na orientação vertical, lado a lado"
+        },
+        {
+          "name": "fotos_integradas",
+          "description": "Ambas fotos ('casal-feliz' e 'casal-praia') foram encontradas e integradas"
+        },
+        {
+          "name": "campos_nome_duplos",
+          "description": "Há 2 campos de texto editáveis para nomes (um embaixo de cada foto)"
+        },
+        {
+          "name": "fundo_decorativo",
+          "description": "Fundo decorativo está aplicado em volta das molduras"
+        },
+        {
+          "name": "camadas_nomeadas_corretamente",
+          "description": "Camadas nomeadas como Foto_1, Foto_2, Texto_Nome_1, Texto_Nome_2, etc."
+        },
+        {
+          "name": "margem_nao_corta_faces",
+          "description": "Elementos importantes (faces) estão distantes das bordas de corte"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "eval_name": "caneca-grade-horizontal-paisagem",
+      "prompt": "Crie um template de caneca com moldura grade horizontal (estilo retângulo horizontal) para paisagem. Use a foto 'viagem-montanha' do repositório. Adicione texto editável 'Lembranças de félas' no topo e decoração nas laterais. Cores que combinem com montanha (azuis, verdes).",
+      "expected_output": "Template Figma 20,5x9,6cm com: 1 grande retângulo horizontal centralizado, foto de paisagem validada, texto editável no topo, decoração lateral (flores, trilhas, etc.), cores naturais, margens de segurança, pronto para impressão de paisagem",
+      "files": [],
+      "assertions": [
+        {
+          "name": "retangulo_horizontal",
+          "description": "Há 1 grande retângulo na orientação horizontal, centralizado no canvas"
+        },
+        {
+          "name": "foto_paisagem_integrada",
+          "description": "Foto 'viagem-montanha' foi encontrada e integrada"
+        },
+        {
+          "name": "texto_topo_presente",
+          "description": "Texto editável está posicionado no topo do template"
+        },
+        {
+          "name": "decoracao_lateral",
+          "description": "Há elementos decorativos (flores, trilhas, vegetação) nas laterais"
+        },
+        {
+          "name": "cores_naturais",
+          "description": "Paleta usa tons naturais (azuis, verdes, marrons terracota)"
+        },
+        {
+          "name": "proporcao_paisagem",
+          "description": "Proporção horizontal do retângulo é apropriada para paisagens"
+        }
+      ]
+    }
+  ]
+}

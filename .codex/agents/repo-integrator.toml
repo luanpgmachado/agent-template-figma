@@ -1,6 +1,6 @@
 name = "repo_integrator"
 description = "Integra skills, AGENTS.md, .codex e convencoes do repositorio."
-model = "gpt-5.4-mini"
+model = "gpt-5.3-Codex"
 model_reasoning_effort = "medium"
 sandbox_mode = "workspace-write"
 developer_instructions = """

@@ -1,6 +1,6 @@
 name = "design_governor"
 description = "Padroniza componentes, foundations, nomenclatura e governanca."
-model = "gpt-5.4"
+model = "gpt-5.3-Codex"
 model_reasoning_effort = "high"
 sandbox_mode = "workspace-write"
 developer_instructions = """

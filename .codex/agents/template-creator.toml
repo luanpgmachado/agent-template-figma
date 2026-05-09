@@ -1,6 +1,6 @@
 name = "template_creator"
 description = "Cria templates no Figma para dashboards e capas institucionais."
-model = "gpt-5.4"
+model = "gpt-5.3-Codex"
 model_reasoning_effort = "high"
 sandbox_mode = "workspace-write"
 developer_instructions = """
